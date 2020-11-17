@@ -13,7 +13,7 @@ from secrets import token_hex
 
 app = Flask(__name__)
 app.config["SECRET KEY"]="secret key"
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 
 # Global variables
 NTemp = sDB.NTemp
