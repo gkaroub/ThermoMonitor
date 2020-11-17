@@ -1,0 +1,41 @@
+body {
+    padding-top: 5%;
+    background: rgb(248, 248, 248);
+    color: black;
+    padding:5%
+}
+
+footer {
+  text-align: center;
+}
+
+navbar-brand {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #000;
+  overflow: auto;
+}
+
+/* .navbar a {
+  float: left;
+  padding: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.card-img-top {
+  object-fit: cover;
+}
+
+a:hover {
+  text-decoration: none;
+} */

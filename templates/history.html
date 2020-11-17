@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% set active_page = 'history' %}
+
+
+{% block content %}
+    <p></p>
+    <h3> Ιστορικά Δεδομένα</h3>
+
+      <div>
+        <form method="POST" action="{{ url_for('history') }}" enctype="multipart/form-data">
+            <div class="form-field">{{ form.smpls.label }} {{ form.smpls }} {{ form.sbmt}}</div>
+        </form>
+      </div>
+
+	<p> Απεικονίζονται δεδομένα των τελευταίων {{ hours }} ωρών (4 δείγματα ανά λεπτό, 240 ανά ώρα):</p>
+    <div id='plots'>
+        <img src="/plot/temp" alt="Θερμοκρασία" width="33%">
+        <img src="/plot/hum" alt="Υγρασία" width="33%">
+        <img src="/plot/press" alt="Πίεση" width="33%">
+    </div>
+
+{% endblock %}

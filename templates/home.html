@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% set active_page = 'home' %}
+
+
+{% block content %}
+<meta http-equiv="refresh" content="30"/>
+<style>
+	body {
+	    text-align: center;
+	    background-color: {{ clr }};
+	}
+	#g1,
+	#g2,
+	#g3,
+	#g4 {
+	    width: 250px;
+	    height: 180px;
+	    display: inline-block;
+	    margin: 1em;
+	}
+   </style>
+   <p></p>
+  <h2>Δεδομένα Αισθητήρων.</h2>
+  <h4>Τελευταία ενημέρωση: {{ time }}</h4>
+  <h4>Θερμοκρασία: {{temp}} °C, Υγρασία: {{hum}} %, Πίεση: {{press}} mBar </h4> 
+  <div id="g1"></div>
+  <div id="g2"></div>
+  <div id="g3"></div>
+    
+  <script src="../static/raphael-2.1.4.min.js"></script>
+  <script src="../static/justgage.js"></script>
+  <script>
+  var g1, g2, g3, g4;
+  /*document.addEventListener("DOMContentLoaded", function(event) {*/
+    window.onload = function() {
+      g1 = new JustGage({
+      id: "g1",
+      value: {{temp}},
+      titleFontColor: "black",
+      title: "Θερμοκρασία Αέρα",
+      valueFontColor: "black",
+      labelFontColor: "black",
+      min: 0,
+      max: 50,
+      symbol: '°',
+      label: "Celsius",
+      pointer: "true",
+      pointerOptions: {
+                        toplength: null,
+                        bottomlength: null,
+                        bottomwidth: 5,
+                        stroke: 'none',
+                        stroke_width: 0,
+                        stroke_linecap: 'square',
+                        color: '#000000'
+                    }
+  });
+      g2 = new JustGage({
+      id: "g2",
+      value: {{hum}},
+      valueFontColor: "black",
+      labelFontColor: "black",
+      min: 0,
+      max: 100,
+      titleFontColor: "black",
+      title: "Υγρασία Αέρα",
+      symbol: "%",
+      label: "",
+      pointer: "true",
+      pointerOptions: {
+                        toplength: null,
+                        bottomlength: null,
+                        bottomwidth: 5,
+                        stroke: 'none',
+                        stroke_width: 0,
+                        stroke_linecap: 'square',
+                        color: '#000000'
+                    }
+  });
+     g3 = new JustGage({
+      id: "g3",
+      value: {{press}},
+      valueFontColor: "black",
+      labelFontColor: "black",
+      min: 850,
+      max: 1100,
+      titleFontColor: "black",
+      title: "Ατμοσφαιρική Πίεση",
+      label: "mbar",
+      pointer: "true",
+      pointerOptions: {
+                        toplength: null,
+                        bottomlength: null,
+                        bottomwidth: 5,
+                        stroke: 'none',
+                        stroke_width: 0,
+                        stroke_linecap: 'square',
+                        color: '#000000'
+                    }
+  });
+  /*     g4 = new JustGage({
+      id: "g4",
+      value: {{hum}},
+      valueFontColor: "yellow",
+      min: 0,
+      max: 100,
+      title: "Υγρασία Συμπιεστή",
+      label: "%"
+  }); */
+  
+  /*  setInterval(function() {
+                  g1.refresh();
+                  g2.refresh();
+                  g3.refresh();
+                }, 3000);  */
+
+    };
+  </script>
+  <p></p>
+
+{% endblock %}
